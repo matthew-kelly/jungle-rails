@@ -1,5 +1,19 @@
-<%# <html>
-  <body> %>
-    <h1>Testing order email for order <%= @order.id %></h1>
-  <%# </body>
-</html> %>
+<h1>You have placed order #<%= @order.id %></h1>
+
+<table>
+<thead>
+  <tr>
+    <th colspan="2">Product</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
+  </tr>
+</thead>
+<tbody>
+<% @order.line_items.each do |line| %>
+  <%= render partial: "/orders/each_item", locals: { order: line } %>
+<% end %>
+  <tr>
+    <td>Total: $<%= @order.total_cents / 100.00 %></td>
+  </tr>
+</tbody>
