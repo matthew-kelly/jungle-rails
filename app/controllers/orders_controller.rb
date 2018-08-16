@@ -52,7 +52,10 @@ class OrdersController < ApplicationController
         )
       end
     end
-    order.save!
+    if order.save!
+      order.send_order_summary_email
+    end
+
     order
   end
 
