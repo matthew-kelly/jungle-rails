@@ -4,7 +4,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Screenshots
 
-!["Main products page](https://github.com/matthew-kelly/jungle-rails/blob/master/docs/order_page.jpeg)
+!["Main products page](https://github.com/matthew-kelly/jungle-rails/blob/master/docs/products_page.jpeg)
 !["Order confirmation page"](https://github.com/matthew-kelly/jungle-rails/blob/master/docs/order_page.jpeg)
 
 ## Setup
