@@ -132,5 +132,50 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+User.create!({
+  first_name: "Robert",
+  last_name: "Paulson",
+  email: "bob@bob.bob",
+  password: "bob",
+  password_confirmation: "bob"
+})
+
+User.create!({
+  first_name: "Robert",
+  last_name: "Paulson Jr.",
+  email: "bob_jr@bob.bob",
+  password: "bob2",
+  password_confirmation: "bob2"
+})
+
+## REVIEWS
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+prod1 = Product.find_or_create_by! name: 'Red Bookshelf'
+
+prod1.reviews.create!({
+  user_id: 1,
+  description: "Wow, great bookshelf!",
+  rating: 4
+})
+
+prod1.reviews.create!({
+  user_id: 2,
+  description: "This sucks.",
+  rating: 1
+})
+
+prod1.reviews.create!({
+  user_id: 1,
+  description: "Great for holding books.",
+  rating: 5
+})
 
 puts "DONE!"
