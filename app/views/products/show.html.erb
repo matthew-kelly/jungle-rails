@@ -30,7 +30,7 @@
       <div class="col-sm-8">
         <h3>Reviews</h3>
         <dl>
-        <% @product.reviews.each do |review| %>
+        <% @reviews.each do |review| %>
         <% user = User.find_by(id: review.user_id) %>
           <dt>Reviewer: <%= user.first_name %> <%= user.last_name %></dt>
           <dd>Description: <%= review.description %></dd>
@@ -42,16 +42,18 @@
         <% end %>
         </dl>
         <% if current_user %>
+        <dl>
           <%= form_for @product, url:product_reviews_path(@product), method: :post do |form| %>
             <%= form.fields_for :reviews do |review| %>
-              <%= review.label :description%>
-              <%= review.text_area :description%>
-              <%= review.label :rating%>
-              <%= review.select :rating, [1, 2, 3, 4, 5] %>
+              <dd class="form-group"><%= review.label :description%>
+              <%= review.text_area :description%></dd>
+              <dd class="form-group"><%= review.label :rating%>
+              <%= review.select :rating, [1, 2, 3, 4, 5] %></dd>
             <% end %>
-            <%= form.submit 'Submit'%>
+            <%= form.submit 'Submit', class: 'btn btn-primary'%>
           <% end %>
         <% end %>
+        </dl>
       </div>
     </div>
 
