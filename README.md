@@ -2,6 +2,10 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Screenshots
+
+!["Main products page](https://github.com/matthew-kelly/jungle/blob/master/docs/products_page.jpeg)
+!["Order confirmation page"](https://github.com/matthew-kelly/xmarks/blob/master/docs/order_page.jpeg)
 
 ## Setup
 
