@@ -35,11 +35,14 @@
           <dt>Reviewer: <%= user.first_name %> <%= user.last_name %></dt>
           <dd>Description: <%= review.description %></dd>
           <dd>Rating: <%= review.rating %>/5</dd>
+          <% if user == current_user %>
+          <dd><%= link_to 'Delete your review', product_review_path(product_id: @product.id, id: review.id), method: :delete, data: { confirm: 'Are you sure?' } %></dd>
+          <% end %>
           <hr />
         <% end %>
         </dl>
         <% if current_user %>
-          <%= form_for @product, url:product_reviews_path(@product), method: "post" do |form| %>
+          <%= form_for @product, url:product_reviews_path(@product), method: :post do |form| %>
             <%= form.fields_for :reviews do |review| %>
               <%= review.label :description%>
               <%= review.text_area :description%>
