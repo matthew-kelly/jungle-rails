@@ -27,14 +27,27 @@
     </div>
     <hr />
     <div class="row">
-      <h3>Reviews</h3>
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8">
+        <h3>Reviews</h3>
+        <dl>
         <% @product.reviews.each do |review| %>
-          <% user = User.find_by(id: review.user_id) %>
-            <dt>Reviewer: <%= user.first_name %> <%= user.last_name %></dt>
-            <dd>Description: <%= review.description %></dd>
-            <dd>Rating: <%= review.rating %>/5</dd>
-            <hr />
+        <% user = User.find_by(id: review.user_id) %>
+          <dt>Reviewer: <%= user.first_name %> <%= user.last_name %></dt>
+          <dd>Description: <%= review.description %></dd>
+          <dd>Rating: <%= review.rating %>/5</dd>
+          <hr />
+        <% end %>
+        </dl>
+        <% if current_user %>
+          <%= form_for @product, url:product_reviews_path(@product), method: "post" do |form| %>
+            <%= form.fields_for :reviews do |review| %>
+              <%= review.label :description%>
+              <%= review.text_area :description%>
+              <%= review.label :rating%>
+              <%= review.select :rating, [1, 2, 3, 4, 5] %>
+            <% end %>
+            <%= form.submit 'Submit'%>
+          <% end %>
         <% end %>
       </div>
     </div>
