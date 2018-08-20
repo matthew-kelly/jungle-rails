@@ -141,16 +141,16 @@ User.create!({
   first_name: "Robert",
   last_name: "Paulson",
   email: "bob@bob.bob",
-  password: "bob",
-  password_confirmation: "bob"
+  password: "bobbob",
+  password_confirmation: "bobbob"
 })
 
 User.create!({
   first_name: "Robert",
   last_name: "Paulson Jr.",
   email: "bob_jr@bob.bob",
-  password: "bob2",
-  password_confirmation: "bob2"
+  password: "bobbob2",
+  password_confirmation: "bobbob2"
 })
 
 ## REVIEWS
